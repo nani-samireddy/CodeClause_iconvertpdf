@@ -9,7 +9,7 @@ export const convertToDocx = async (file) => {
     headers: {
       "Accept-Encoding": "gzip, deflate, br",
       Accept: "*/*",
-      "X-RapidAPI-Key": process.env.REACT_APP_PDF4ME_API_KEY,
+      "X-RapidAPI-Key": import.meta.env.VITE_REACT_APP_PDF4ME_API_KEY,
       "X-RapidAPI-Host": "pdf4me.p.rapidapi.com",
     },
     body: data,

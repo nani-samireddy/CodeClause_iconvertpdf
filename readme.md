@@ -36,7 +36,7 @@ To run iConvert PDF locally, follow these steps:
 4. Create a `.env` file in the project root directory and add the following environment variables:
 
    ```bash
-   REACT_APP_PDF4ME_API_KEY=your_pdf4me_api_key
+   VITE_REACT_APP_PDF4ME_API_KEY=your_pdf4me_api_key
    ```
 
    Replace `your_pdf4me_api_key` with your own API key obtained from the pdf4me website.
