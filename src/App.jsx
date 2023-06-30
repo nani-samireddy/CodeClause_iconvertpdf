@@ -3,17 +3,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { convertToDocx } from './api';
+import Loader from "./components/loader/loader";
 
 function App() {
-  const [filename, setFilename] = useState(''); // filename is the name of the file
+  const [filename, setFilename] = useState(""); // filename is the name of the file
+  const [loading, setLoading] = useState(false); // loading is a boolean to show the loader
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]; // get the file from the input
     setFilename(file.name); // update the state
-  }
+  };
 
   const handleConvert = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const file = document.getElementById("uploadFile").files[0];
 
     const response = await convertToDocx(file);
@@ -33,13 +36,14 @@ function App() {
     link.href = URL.createObjectURL(blob);
     link.download = filename.replace(".pdf", "_converted.docx");
     link.click();
+    setLoading(false);
   };
-
 
   return (
     <>
-      <h1>PDF Converter</h1>
-      <p>A simple PDF converter for your files.</p>
+      {loading && <Loader />}
+      <h1>iConvert PDF v.1.0</h1>
+      <p>A simple PDF converter to convert your pdf files into docx</p>
       <div className="read-the-docs">
         <ul>
           Steps
